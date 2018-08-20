@@ -48,21 +48,6 @@ N: cloud computing course uses `us-east-1`
 
 # What All is Needed to Submit to Autograder
 
-There are so many prerequisites just to develop a grader, including use cases of
-  * download, set up, and run AGS image locally as a Docker container
-  * develop Java grader
-  * run interactively
-  * evaluate results:
-    - feedback
-    - log
-    - score
-  * practice submitting
-  * validate submissions
-  * run non-interactively
-  * reproduce AGS 'as any student'
-  * check environment
-  * this gem: "For detailed usage, read the src code. The learning curve requires: Docker, Makefile, AWS Assume Role (to auth aws ecr and pull AGS image)
-
 Process happens in 2 steps: submitter, checker
 
  * TPZ accounts (faculty / staff / students)
@@ -101,6 +86,20 @@ Process happens in 2 steps: submitter, checker
     - Submitter [Submitter HowTo](https://github.com/CloudComputingCourse/TA-Manual/wiki/submitter-HOWTO) mentions "Compile the Submitter with Docker and Makefile", which is very confusing. It talks about cloning the `shc` git repo, building it, running it to turn `submitter.sh` (do we have to write this?) into `submitter.sh.x.c` - it shows some example code that does not seem to have anything to do with Docker or Makefile. This seems like notes or "extra things to remember" regarding a Submitter, but not at all a tutorial or step-by-step example on how to actually create and use Submitters.
   * Grader [grader HOWTO](https://github.com/CloudComputingCourse/TA-Manual/wiki/grader-HOWTO)
     - seems like developing a grader is it's own project, with learning curve, iterative development, testing, before deplying:
+    - There are so many prerequisites just to develop a grader, including use cases of
+     * download, set up, and run AGS image locally as a Docker container
+     * develop Java grader
+     * run interactively
+     * evaluate results:
+       - feedback
+       - log
+       - score
+     * practice submitting
+     * validate submissions
+     * run non-interactively
+     * reproduce AGS 'as any student'
+     * check environment
+     * this gem: "For detailed usage, read the src code. The learning curve requires: Docker, Makefile, AWS Assume Role (to auth aws ecr and pull AGS image)
     
   * a submission tarball (`submission.tar.gz`) with required structure:
     -?
