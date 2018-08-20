@@ -46,6 +46,83 @@ Q: How to know what's already running in the cloud to submit for autograder?
 
 N: cloud computing course uses `us-east-1`
 
+# What All is Needed to Submit to Autograder
+
+There are so many prerequisites just to develop a grader, including use cases of
+  * download, set up, and run AGS image locally as a Docker container
+  * develop Java grader
+  * run interactively
+  * evaluate results:
+    - feedback
+    - log
+    - score
+  * practice submitting
+  * validate submissions
+  * run non-interactively
+  * reproduce AGS 'as any student'
+  * check environment
+  * this gem: "For detailed usage, read the src code. The learning curve requires: Docker, Makefile, AWS Assume Role (to auth aws ecr and pull AGS image)
+
+Process happens in 2 steps: submitter, checker
+
+ * TPZ accounts (faculty / staff / students)
+   - TPZ_USERNAME
+   - TPZ_PASSWORD
+ * Andrew ID
+ * Course ID within TPZ, e.g. we have `F18: Design & Engineering of Intelligent Information Systems`  
+   `F18 11-791 Design & Engineering of Intelligent Information Systems`
+   - Projects within TPZ
+     - Module (homework) within TPZ
+       - Open time
+       - Deadline
+       - Writeup
+       - (optional) AssessMe
+       - generated TPZ Submission Password
+  * AWS accounts (faculty / staff / students)
+    - IAM Users
+    - Policies for users, e.g TPS staff needs to set us up with[AmazonEC2ContainerRegistryReadOnly](https://docs.aws.amazon.com/AmazonECR/latest/userguide/ecr_managed_policies.html#AmazonEC2ContainerRegistryReadOnly) policy
+    - a profile with role set up `AWS_PROFILE=assumed_role` so as to be able to run  
+    ```
+    eval $(aws ecr get-login --no-include-email --region us-east-1)
+    docker pull 939223853384.dkr.ecr.us-east-1.amazonaws.com/cmucc/ags:ubuntu
+    docker tag 939223853384.dkr.ecr.us-east-1.amazonaws.com/cmucc/ags:ubuntu cmucc/ags:ubuntu
+    ```
+  * a `submitter/` folder (where does this need to be, where does it run?)
+    - `Makefile`
+    - `SHC_DOCKER_IMAGE=cumcc/shc` (what/where is this exactly?)
+    - `SUBMITTER_NAME=submitter` and corresponding `submitter/submitter.sh`
+    - `CHECKER_NAME=checker` and corresponding `submitter/checker.sh`
+  * a `grader/` folder (when, where, and by whom does this need to be / run?)
+    - Makefile
+    - ags-image-pull.sh
+    - pom.xml
+  * we have to write our own submitter and checker code (in Java?)
+    - a local copy of the AGS Docker image
+    - Submitter [Submitter HowTo](https://github.com/CloudComputingCourse/TA-Manual/wiki/submitter-HOWTO) mentions "Compile the Submitter with Docker and Makefile", which is very confusing. It talks about cloning the `shc` git repo, building it, running it to turn `submitter.sh` (do we have to write this?) into `submitter.sh.x.c` - it shows some example code that does not seem to have anything to do with Docker or Makefile. This seems like notes or "extra things to remember" regarding a Submitter, but not at all a tutorial or step-by-step example on how to actually create and use Submitters.
+  * Grader [grader HOWTO](https://github.com/CloudComputingCourse/TA-Manual/wiki/grader-HOWTO)
+    - seems like developing a grader is it's own project, with learning curve, iterative development, testing, before deplying:
+    
+  * a submission tarball (`submission.tar.gz`) with required structure:
+    -?
+  * Maven
+    - [Maven Upload Grader plugin](https://github.com/CloudComputingCourse/CloudComputingUtils/wiki/Plugin-Usage) <- doesn't exist
+  * Java Grader `java_grader.jar`
+  * Grading rubric [example](https://github.com/CloudComputingCourse/TA-Manual/wiki/grading-rubrics-template#example)
+  * `aws` command line interface
+  * AGS Support for a task (what is task vs. module?) needs to be granted by TPZ staff:
+    - task ID
+    - `ags_policy`
+    - `ags_consumer_status`
+    - https://github.com/CloudComputingCourse/TA-Manual/wiki/grader-HOWTO#enable-ags-support-for-a-task
+  * a grader jarfile in `target/grader.jar`
+  * access to the Cloud Computing Docker Registry (or our own Docker Registry?)
+    - 
+  * `signature`
+  * `semester`
+  * `courseID` <- TPZ needs to know about this already, assuming is `11791`
+  * [upload-grader-HOWTO]() <- missing
+
+
 ## Tricks
 Cloud Computing course uses a Docker repository name like `939223853384.dkr.ecr.us-east-1.amazonaws.com` (prepending an image name like `cmucc/p0lg:v1`)
 
