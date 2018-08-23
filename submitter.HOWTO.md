@@ -32,3 +32,30 @@ Uploading answers, files larger than 5M will be ignored...
 {"status":1209,"success":true,"message":"Your submission is in processing, submission token is:er1k@andrew.cmu.edu_pi0_hello-world_121\
 1059739 Wait and check your code, score and feedback on TPZ."}If your submission is uploaded successfully. Log in to theproject.zone and open the submissions table to see how you did!
 ```
+Check the TPZ submissions table page, https://theproject.zone/f18-11791/pi0/submissions - is it there? no :(
+
+Why not? There was no data. :)  The submitter only does the following:
+
+  * Runs a 'grade' function locally - essentially just runs the homework code
+  * Creates a tarball of (output) files from the working directory
+  * Uploads the tarball to TPZ AGS
+  * Along with this, lots of metadata, much we don't know about:
+    - andrewId
+    - password
+    - dns
+    - semester
+    - courseId
+    - projectId
+    - taskId
+    - lan
+    - tpzKey
+    - feedbackId
+    - codeId
+    - useContainer
+    - taskLimit
+    - update
+    - pending
+    - duration
+    - checkResult
+
+    
