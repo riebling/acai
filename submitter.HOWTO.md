@@ -1,5 +1,7 @@
 ### Submitter HOWTO
 
+![AGS Diagram](TPZ_SCOTT_Presentation_SCS_24Jul2018.png)
+
 Git clone & use base code from [Cameron's example repo](https://github.com/11-791SoftwareEngineeringForIT/Project0), which has hard coded [several variables](https://github.com/11-791SoftwareEngineeringForIT/Project0/blob/master/submitter/submitter.sh#L23-L29) for us:
 ```
     # Module / task specific fields
