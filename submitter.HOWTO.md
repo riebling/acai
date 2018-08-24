@@ -77,4 +77,8 @@ er1k@islpc22:~/ACAI/Project0/submitter$ diff submitter.sh submitter4.sh
 Presumably we DO NOT need to do what the [TPZ submitter HOWTO](https://github.com/CloudComputingCourse/TA-Manual/wiki/submitter-HOWTO#compile-the-submitter-with-docker-and-makefile) does, which is to compile the `submitter.sh` bash script into an executable, and store the compiled `submitter` executable as part of the GitHub repository given to students, and associated with the homework
 
 ## Grader HOWTO
-This is more complicated. We're waiting on Cameron's [skeleton grader implementation](https://github.com/11-791SoftwareEngineeringForIT/Project0#grader) which will be hopefully much simpler than the full [TPZ/AGS implementation](https://github.com/CloudComputingCourse/TA-Manual/wiki/grader-HOWTO) that uses an Amazon Machine Image, Docker, Makefile
+This is more complicated. We're waiting on Cameron's [skeleton grader implementation](https://github.com/11-791SoftwareEngineeringForIT/Project0#grader) which will be hopefully much simpler than the full [TPZ/AGS implementation](https://github.com/CloudComputingCourse/TA-Manual/wiki/grader-HOWTO) that uses a grader Amazon Machine Image, Docker, Makefile, ans possibly Maven + Java as well. I suspect also we won't use the full version, given that it contains broken links to (missing) components:
+
+ * grader-utils library
+ * upload grader Maven plugin
+ 
