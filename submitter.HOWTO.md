@@ -59,5 +59,22 @@ Why not? There was no data. :)  The submitter only does the following:
     - pending
     - duration
     - checkResult
-
     
+According to [TPZ/AGS docs](https://github.com/CloudComputingCourse/TA-Manual/wiki/grader-HOWTO#enable-ags-support-for-a-task), each new Task (homework) we create requires emailing Cameron/Marshall to manually enable it by ID
+
+Edit `submitter.sh` to update (hard-coded) `projectId` and `taskId` variables, for example
+```
+er1k@islpc22:~/ACAI/Project0/submitter$ diff submitter.sh submitter4.sh
+27c27
+<     projectId="pi0"                             # created at "Create New Project" time in TPZ
+---
+>     projectId="fixing-module-titles"                             # created at "Create New Project" time in TPZ
+29c29
+<     taskId="hello-world"                        # the same as "Slug" in the Edit Task pop-up
+---
+>     taskId="P4M1T1"                        # the same as "Slug" in the Edit Task pop-up
+```
+Presumably we DO NOT need to do what the [TPZ submitter HOWTO](https://github.com/CloudComputingCourse/TA-Manual/wiki/submitter-HOWTO#compile-the-submitter-with-docker-and-makefile) does, which is to compile the `submitter.sh` bash script into an executable, and store the compiled `submitter` executable as part of the GitHub repository given to students, and associated with the homework
+
+## Grader HOWTO
+This is more complicated. We're waiting on Cameron's [skeleton grader implementation](https://github.com/11-791SoftwareEngineeringForIT/Project0#grader) which will be hopefully much simpler than the full [TPZ/AGS implementation](https://github.com/CloudComputingCourse/TA-Manual/wiki/grader-HOWTO) that uses an Amazon Machine Image, Docker, Makefile
