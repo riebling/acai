@@ -84,3 +84,19 @@ This is more complicated. We're waiting on Cameron's [skeleton grader implementa
  
  Still have only the vaguest notion of what to do with these, still would really love to see a TUTORIAL with EXAMPLES that WORK.
  Do I really need to use Maven? Do I really need to use Java? I don't have an environment for these, have been Java free for 5 years and loving it.
+ 
+ ## SUCCESS!
+ Yes, Martha, we do need Java. AND Maven. And the big reveal is that there are more components to be run in a specific order. But first, to explain what was misunderstood about the compiled obfuscated shell script: This is something given to students. So they can't reverse engineer it.
+ 
+ Now the components, and the order:
+ 
+ 1. Develop a Grader (component)
+ 2. Run an Uploader (component) to upload the Grader to TPZ. Currently there's little feedback or means to verify the grader is there, visible, on TPZ, but we're told this is coming.
+ 3. Run a Submitter (component). This submits a homework (TPZ "Task" / part of a TPZ "Project") to TPZ, which then gets executed on TPZ cloud infrastructure and interacts with the Grader
+ 4. View results in a web browser, in the TPZ Submissions tab for a Project. I believe there can be multiple tabs per project, one per "Task" (homework), a URL for example https://theproject.zone/f18-11791/pi0/submissions that you navigate to by
+    a. Log into TPZ
+    b. authenticate with andrew credentials
+    c. Navigate to Course
+    d. Navigate to Project
+    e. Navigate to Submissions
+    
