@@ -17,6 +17,8 @@ Supply some variables on command line:
 ```
 export TPZ_USERNAME=er1k@andrew.cmu.edu
 ```
+Note: if you forget to do this and run the `submitter.sh` it will instruct you to set to "your gmail address" - this is misleading. It should be your TPZ userid which is typically an Andrew email, not GMail.
+
 Get the submission code from the F18-11791 prototype [TPZ page](https://theproject.zone/f18-11791/pi0) (click "Get Submission Password" button, copy paste)
 ```
 export TPZ_PASSWORD=H6CmXQOGRc34zRYyKzIa9y
