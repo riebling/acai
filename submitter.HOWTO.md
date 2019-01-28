@@ -100,3 +100,17 @@ This is more complicated. We're waiting on Cameron's [skeleton grader implementa
     d. Navigate to Project
     e. Navigate to Submissions
     
+## A crazy lot of dependencies
+in list form  
+  * pom.xml customized to the project that must contain
+    - Where do you get it?
+    - groupId e.g. `<groupId>edu.cmu.scs.cs._11791</groupId>`
+    - artifactId probably arbitrary, but based on project name e.g. for "project0" `<artifactId>project0-grader</artifactId>` (where does "project0-grader" come from?)
+    - `<courseId>11791</courseId>` must correspond to TPZ course ID
+    - `<semester>f18</semester>` must correspond to TPZ course semester
+    - `<taskId>hello-world</taskId>` must correspond to TPZ course
+  * Java source in a folder `src/main/java/edu/cmu/scs/cs/_11791/`
+    - must have a public class `Grader`
+    - talks about a 'localMode' that is set depending on how it is run
+        (localMode exists somewhere hidden in Config or GradingProcessor?, does not appear anywhere in the source of Grader.java)
+  * `upload-grader-maven-plugin-0.0.6-RELEASE.jar` which is 23195194 bytes and contains 16717 files
