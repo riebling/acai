@@ -113,4 +113,4 @@ in list form
     - must have a public class `Grader`
     - talks about a 'localMode' that is set depending on how it is run
         (localMode exists somewhere hidden in Config or GradingProcessor?, does not appear anywhere in the source of Grader.java)
-  * `upload-grader-maven-plugin-0.0.6-RELEASE.jar` which is 23195194 bytes and contains 16717 files
+  * `upload-grader-maven-plugin-0.0.6-RELEASE.jar` which is 23195194 bytes and contains [16717 files](https://github.com/riebling/acai/blob/master/pluginListing.txt)
