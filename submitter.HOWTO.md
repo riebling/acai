@@ -92,8 +92,12 @@ This is more complicated. We're waiting on Cameron's [skeleton grader implementa
  
  Now the components, and the order:
  
- 1. Develop a Grader (component)
- 2. Run an Uploader (component) to upload the Grader to TPZ. Currently there's little feedback or means to verify the grader is there, visible, on TPZ, but we're told this is coming.
+ 1. Develop a Grader (component) in `grader/`  
+ 1a. Run `mvn package` in `grader/` to create `target/java_grader.jar`  
+ 2. Run an Uploader (component) to upload the Grader to TPZ. Currently there's little feedback or means to verify the grader is there, visible, on TPZ, but we're told this is coming.  
+ ```
+ mvn upload-grader:upload -Dupload.andrewId=<ANDREW_ID> -Dupload.password=<TPZ_PWD> -Dupload.filename=target/java_grader.jar
+ ```
  3. Run a Submitter (component). This submits a homework (TPZ "Task" / part of a TPZ "Project") to TPZ, which then gets executed on TPZ cloud infrastructure and interacts with the Grader
  4. View results in a web browser, in the TPZ Submissions tab for a Project. I believe there can be multiple tabs per project, one per "Task" (homework), a URL for example https://theproject.zone/f18-11791/pi0/submissions that you navigate to by
     a. Log into TPZ
@@ -102,7 +106,8 @@ This is more complicated. We're waiting on Cameron's [skeleton grader implementa
     d. Navigate to Project
     e. Navigate to Submissions
 
-NOTE: between grader and submitter, `reference.yaml` contains the expected result, but `output.json` contains the actual result sent to the grading service. These are not only different formats, but somewhat obscure in location (assuming your directory structure begins with `Projectname` or in our concrete example, `Project0`:  
+### reference.yaml vs output.json
+Between grader and submitter, `reference.yaml` contains the expected result, but `output.json` contains the actual result sent to the grading service. These are not only different formats, but somewhat obscure in location (assuming your directory structure begins with `Projectname` or in our concrete example, `Project0`:  
 ```
 Projectname/submitter/output.json
 ```
@@ -110,6 +115,17 @@ and
 ```
 Projectname/grader/src/main/resources/reference.yaml
 ```
+
+## More little confusions
+TPZ Password is referred to in 3 different ways:
+ * Environment variable `TPZ_PASSWORD`
+ * Maven comment (how to upload the grader) `TPZ_PWD`
+ * TPZ site `TPZ_SUBMISSION_PASSWORD`
+ 
+TPZ Username is referred to in different ways:
+ * Environment varialbe `TPZ_USERNAME`
+ * Maven comment (how to upload grader) `ANDREW_ID`
+ * TPZ site ???
 
 ## A crazy lot of dependencies
 in list form  
