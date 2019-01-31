@@ -101,7 +101,16 @@ This is more complicated. We're waiting on Cameron's [skeleton grader implementa
     c. Navigate to Course
     d. Navigate to Project
     e. Navigate to Submissions
-    
+
+NOTE: between grader and submitter, `reference.yaml` contains the expected result, but `output.json` contains the actual result sent to the grading service. These are not only different formats, but somewhat obscure in location (assuming your directory structure begins with `Projectname` or in our concrete example, `Project0`:  
+```
+Projectname/submitter/output.json
+```
+and
+```
+Projectname/grader/src/main/resources/reference.yaml
+```
+
 ## A crazy lot of dependencies
 in list form  
   * pom.xml customized to the project that must contain
