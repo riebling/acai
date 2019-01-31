@@ -126,6 +126,22 @@ TPZ Username is referred to in different ways:
  * Environment varialbe `TPZ_USERNAME`
  * Maven comment (how to upload grader) `ANDREW_ID`
  * TPZ site ???
+ 
+If your grader got an error, clicking the Grading Complete link of the Feedback tab gives a strange message; it does not tell us how to set the encoding of the web page, only that we should:
+
+Example link: https://cmucc-foryoureyesonly.s3.amazonaws.com/er1k@andrew.cmu.edu_39b32048-253d-4f79-ac52-d4a7af41f94f.txt
+```
+â˜ If the cloud character on the left does not display correctly, set the encoding of the web page to UTF-8.
+We addressed the importance of encoding in this course. 
+Browsers, such as Chrome, will guess the charset and you must not rely on them.
+
+
+Submission Time:	2019-01-31 11:24:33
+
+
+Error occurred in grading. Please contact TA to check it ASAP.
+```
+Some Googling to find out how - is still super misleading. You can (eventually) find, for Firefox, an interface element to add an icon for "show text encoding options" then one of the choices is "Unicode" (nowhere does it offer UTF-8 as a selection). Maybe there's an implicit assumption about what browser people using TPZ are required to use?
 
 ## A crazy lot of dependencies
 in list form  
