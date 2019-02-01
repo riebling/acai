@@ -106,7 +106,8 @@ Process happens in 2 steps: submitter, checker
   * a submission tarball (`submission.tar.gz`) with required structure:
     -?
   * Maven
-    - [Maven Upload Grader plugin](https://github.com/CloudComputingCourse/CloudComputingUtils/wiki/Plugin-Usage) <- doesn't exist
+    - [Maven Upload Grader plugin](https://github.com/CloudComputingCourse/CloudComputingUtils/wiki/Plugin-Usage) <- Permission to view this requires TAs GitHub accounts be added by Cameron Dashti cdashti1@andrew.cmu.edu (c-n-d on GitHub)
+    
   * Java Grader `java_grader.jar`
   * Grading rubric [example](https://github.com/CloudComputingCourse/TA-Manual/wiki/grading-rubrics-template#example)
   * `aws` command line interface
