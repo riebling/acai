@@ -126,6 +126,7 @@ TPZ Username is referred to in different ways:
  * Environment varialbe `TPZ_USERNAME`
  * Maven comment (how to upload grader) `ANDREW_ID`
  * TPZ site ???
+ * `andrewId` in submitter.sh script
  
 If your grader got an error, clicking the Grading Complete link of the Feedback tab gives a strange message; it does not tell us how to set the encoding of the web page, only that we should:
 
