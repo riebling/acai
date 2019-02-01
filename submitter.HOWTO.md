@@ -117,6 +117,8 @@ Projectname/grader/src/main/resources/reference.yaml
 ```
 
 ## More little confusions
+It is quite possible to develop a grader that appears to upload properly, and a submitter that appears to submit properly, but see absolutely nothing happen on TPZ Submissions page. The "black hole" debugging problem. 
+
 TPZ Password is referred to in 3 different ways:
  * Environment variable `TPZ_PASSWORD`
  * Maven comment (how to upload the grader) `TPZ_PWD`
@@ -143,6 +145,33 @@ Submission Time:	2019-01-31 11:24:33
 Error occurred in grading. Please contact TA to check it ASAP.
 ```
 Some Googling to find out how - is still super misleading. You can (eventually) find, for Firefox, an interface element to add an icon for "show text encoding options" then one of the choices is "Unicode" (nowhere does it offer UTF-8 as a selection). Maybe there's an implicit assumption about what browser people using TPZ are required to use?
+
+The explanation of the reference answer format in reference.yaml is confusing. Could really benefit from examples of each. What is meant by "code attribute", "double quoted style" and "literal \n sequence", and "answer/secret attribute with JSON/CSV" ?:
+```
+# Supported answer types:
+# String Int Decimal Range Regex Json
+#
+# code attribute:
+# double-quoted style (\ and " must be escaped by \,
+# newlines can be inserted with a literal \n sequence,
+# lines can be concatenated without spaces with trailing \)
+# trailing spaces are ignored, can be used freely as indentation
+#
+# answer/secret attribute with JSON/CSV:
+# single-quoted style (literal ' must be escaped to doubled '', no special characters)
+# trailing spaces are ignored, can be used freely as indentation
+# \n is needed as newline
+```
+I am purely guessing here. I think that is what is meant: 
+ * "double quoted style" - `answer:` entries may optionally be surrounded by double quotes. 
+ * the paren character, the backslash character, and the double quote character require escaping with a backslash, e.g. `\"`
+
+How do similar restrictions apply to the output.json produced by student code submissions? It seems that JSON may have it's own restrictions on quoting, escaping special characters, continuing entries across multiple lines.
+
+Actions are performed in a number of ways:
+ * Makefile
+ * Maven (pom.xml)
+ * shell script
 
 ## A crazy lot of dependencies
 in list form  
