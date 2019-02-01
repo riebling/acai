@@ -122,7 +122,7 @@ Process happens in 2 steps: submitter, checker
   * `signature`
   * `semester`
   * `courseID` <- TPZ needs to know about this already, assuming is `11791`
-  * [upload-grader-plugin](https://github.com/CloudComputingCourse/CloudComputingUtils/wiki/Plugin-Usage) <- missing
+  * [upload-grader-plugin](https://github.com/CloudComputingCourse/CloudComputingUtils/wiki/Plugin-Usage)
 
 
 ## Tricks
