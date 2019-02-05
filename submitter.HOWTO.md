@@ -91,7 +91,8 @@ This is more complicated. We're waiting on Cameron's [skeleton grader implementa
  Yes, Martha, we do need Java. AND Maven. And the big reveal is that there are more components to be run in a specific order. But first, to explain what was misunderstood about the compiled obfuscated shell script: This is something given to students. So they can't reverse engineer it.
  
  Now the components, and the order:
- 
+
+ 0. Develop the Project and Tasks using TPZ web interface. Important: question IDs & types must match what's in Grader & Submitter later on!
  1. Develop a Grader (component) in `grader/`  
  1a. Run `mvn package` in `grader/` to create `target/java_grader.jar`  
  2. Run an Uploader (component) to upload the Grader to TPZ. Currently there's little feedback or means to verify the grader is there, visible, on TPZ, but we're told this is coming.  
@@ -117,7 +118,7 @@ Projectname/grader/src/main/resources/reference.yaml
 ```
 
 ## More little confusions
-It is quite possible to develop a grader that appears to upload properly, and a submitter that appears to submit properly, but see absolutely nothing happen on TPZ Submissions page. The "black hole" debugging problem. 
+It is quite possible to develop a grader that appears to upload properly, and a submitter that appears to submit properly, but see absolutely nothing happen on TPZ Submissions page. The "black hole" debugging problem. You may find that the grader did not compile fully (so need to pay attention to the screenfuls of info it prints when uploading grader using Maven). It may be that question IDs in grader & submitter do not match what is defined in the TPZ page for the Task (homework).
 
 TPZ Password is referred to in 3 different ways:
  * Environment variable `TPZ_PASSWORD`
